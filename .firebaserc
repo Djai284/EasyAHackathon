@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "solis-website"
+  },
+  "targets": {
+    "solis-website": {
+      "hosting": {
+        "app": [
+          "solis-demo-app"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
