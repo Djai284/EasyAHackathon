@@ -1,7 +1,6 @@
 {
   "hosting": {
     "public": "out",
-    "site": "solis-app-demo",
     "ignore": [
       "firebase.json",
       "**/.*",

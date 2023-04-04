@@ -92,7 +92,7 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link href="/signin" className="text-gray-600 text-lg hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">
+                <Link href="/login" className="text-gray-600 text-lg hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">
                   Log in
                 </Link>
               </li>
