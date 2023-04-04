@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Transition from '../utils/Transition';
 import Dropdown from '../utils/Dropdown';
+import 'animate.css'
 
 export default function Header() {
 
@@ -42,7 +43,7 @@ export default function Header() {
   }, [top]);
 
   return (
-    <header className={`fixed w-full bg-white z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
+    <header className={`animate__animated animate__fadeIn animate__delay-3s fixed w-full bg-white z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
 
@@ -59,12 +60,12 @@ export default function Header() {
 
             {/* Desktop menu links */}
             <ul className="flex grow justify-end flex-wrap items-center">
-              <li>
+              {/* <li>
                 <Link href="/pricing" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Pricing</Link>
               </li>
               <li>
                 <Link href="/about" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">About us</Link>
-              </li>
+              </li> */}
               {/* <li>
                 <Link href="/tutorials" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">
                   Tutorials
@@ -91,11 +92,13 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link href="/signin" className="text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Log in</Link>
+                <Link href="/signin" className="text-gray-600 text-lg hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">
+                  Log in
+                </Link>
               </li>
               <li>
                 <Link href='/signup'>
-                  <div className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800">
+                  <div className="px-4 py-2 bg-gray-900 text-white text-lg rounded-md hover:bg-gray-800">
                     Sign Up
                   </div>
                 </Link>
@@ -105,9 +108,9 @@ export default function Header() {
           </nav>
 
           {/* Mobile menu */}
-          <div className="flex md:hidden">
+          {/* <div className="flex md:hidden">
 
-            {/* Hamburger button */}
+            Hamburger button
             <button
               ref={trigger}
               className={`hamburger ${mobileNavOpen && 'active'}`}
@@ -123,7 +126,7 @@ export default function Header() {
               </svg>
             </button>
 
-            {/*Mobile navigation */}
+            Mobile navigation
             <div ref={mobileNav}>
               <Transition
                 show={mobileNavOpen}
@@ -180,7 +183,7 @@ export default function Header() {
               </Transition>
             </div>
 
-          </div>
+          </div> */}
 
         </div>
       </div>

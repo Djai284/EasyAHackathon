@@ -9,7 +9,6 @@ const Home = () => {
   return (
     <div>
       <Landing />
-      {/* <Dashboard />  */}
     </div>
   )
 }
