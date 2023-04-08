@@ -50,7 +50,7 @@ export default function Dashboard() {
           Recently Used
         </h1>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:grid-cols-6">
+        <div className="flex-initial grid grid-cols-2 md:grid-cols-4 gap-12 lg:grid-cols-6">
           <AppWidget />
           <AppWidget />
           <AppWidget />

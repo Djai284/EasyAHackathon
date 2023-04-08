@@ -14,20 +14,22 @@ export async function googleSignUp() {
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result)
       const user = result.user
+      window.sessionStorage.setItem("user", user.uid)
+      console.log('userID: ', user.uid)
     })
     .then(() => {
       window.location.assign('/onboarding')
     })
 }
 
-export default async function googleLogin() {
+export async function googleLogin() {
   signInWithPopup(auth, googleProvider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const user = result.user
     })
     .then(() => {
-      window.location.assign('dashboard')
+      window.location.assign('/dashboard')
     })
     .catch((error) => {
       console.log(error)

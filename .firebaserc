@@ -6,7 +6,7 @@
     "solis-website": {
       "hosting": {
         "app": [
-          "solis-demo-app"
+          "solis-app-demo"
         ]
       }
     }

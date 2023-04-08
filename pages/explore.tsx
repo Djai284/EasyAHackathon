@@ -1,8 +1,12 @@
 import React from 'react'
+import { SidePanel } from '../components'
 
 const explore = () => {
   return (
-    <div>explore</div>
+    <div>
+      <SidePanel />
+        
+    </div>
   )
 }
 

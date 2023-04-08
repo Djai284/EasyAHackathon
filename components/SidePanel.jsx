@@ -1,21 +1,23 @@
 import React from 'react'
+import Link from 'next/link'
 
 const SidePanel = () => {
   return (
-    <div
-      className="w-60 h-screen flex flex-col p-3 bg-orange-500 shadow sticky top-0"
-    >
+    <div className="w-80 h-screen flex flex-col p-3 bg-[#252325] shadow sticky top-0">
       <div className="space-y-3">
-        <div className="flex items-center justify-center">
-          <h2 className="text-2xl font-bold text-white">
-            Dashboard
-          </h2>
+        <div className="flex items-center justify-center rounded-lg px-4 py-4 hover:cursor-pointer">
+          <Link href='/' className='flex'>
+            <img src='logo.png' className='h-16 flex' />
+            <h2 className="px-4 text-2xl font-thin text-white flex">
+              Solis Machines
+            </h2>
+          </Link>
         </div>
         <div className="flex-1">
-          <ul className="pt-2 pb-4 space-y-1 text-xl">
+          <ul className="pt-2 pb-4 space-y-1 text-xl relative">
             <li className="rounded-md hover:bg-orange-400">
               <a
-                href="#"
+                href="./"
                 className="flex items-center p-2 space-x-3 rounded-md"
               >
                 <svg
@@ -37,7 +39,7 @@ const SidePanel = () => {
             </li>
             <li className="rounded-md hover:bg-orange-400">
               <a
-                href="#"
+                href="./explore"
                 className="flex items-center p-2 space-x-3 rounded-md"
               >
                 <svg
@@ -59,9 +61,9 @@ const SidePanel = () => {
                 </span>
               </a>
             </li>
-            <li className="rounded-md hover:bg-orange-400 mt-30">
+            <li className="rounded-md hover:bg-orange-400 mt-30 inset-x-0 bottom-0">
               <a
-                href="#"
+                href="./settings"
                 className="flex items-center p-2 space-x-3 rounded-md"
               >
                 <svg
@@ -85,30 +87,6 @@ const SidePanel = () => {
                 </svg>
                 <span className="text-gray-100">
                   Settings
-                </span>
-              </a>
-            </li>
-            <li className="rounded-md hover:bg-orange-400">
-              <a
-                href="#"
-                className="flex items-center p-2 space-x-3 rounded-md"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-gray-100"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                  />
-                </svg>
-                <span className="text-gray-100">
-                  Logout
                 </span>
               </a>
             </li>

@@ -4,6 +4,7 @@ module.exports = {
   images: {
     unoptimized: true,
   },
+  experimental: { css: true }
 
 }
 

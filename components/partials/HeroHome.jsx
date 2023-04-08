@@ -21,12 +21,12 @@ export default function HeroHome(props) {
                 Solis
               </span>
             </h1>
-            <div className="max-w-4xl mx-auto">
-              <p className="animate__animated animate__fadeInDown animate__delay-1s text-2xl mb-12 " data-aos="zoom-y-out" data-aos-delay="150">
+            <div className="animate__animated animate__fadeInUp max-w-4xl mx-auto">
+              <p className="text-2xl mb-8 " data-aos="zoom-y-out" data-aos-delay="150">
                 Run your computer faster with a click of a button!
               </p>
-              <div className="animate__animated animate__fadeInUp animate__delay-2s max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
-                <Link href="/login" className=" px-8 py-4 rounded-md font-semibold bg-[#eb9363] text-white hover:shadow-lg hover:shadow-orange transition duration-150 w-full mb-4 sm:w-auto sm:mb-0">
+              <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
+                <Link href="/signup" className=" px-8 py-4 rounded-md font-semibold bg-orange-400 text-white hover:shadow-lg hover:shadow-orange transition duration-150 w-full mb-4 sm:w-auto sm:mb-0">
                   Try Demo
                 </Link>
               </div>

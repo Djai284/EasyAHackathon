@@ -1,12 +1,10 @@
 import React from 'react'
 import { Signup, Header } from '../components'
-import {googleSignUp} from '../components/api/auth'
+import { googleSignUp } from '../components/api/auth'
+import Link from 'next/link'
 import 'animate.css'
 
 const signup = () => {
-
-
-
   return (
     <div className='flex h-screen'>
       {/* <div className='flex flex-initial mx-auto flex-col bg-white rounded-2xl justify-center px-4 sm:px-6 sm:max-w-lg lg:flex-none lg:px-20'> */}
@@ -89,21 +87,21 @@ const signup = () => {
           </div>
         </form> */}
 
-        <p className="mt-8 text-lg font-light text-center text-gray-700">
-          {" "}
-          Already have an account?{" "}
-          <a
-            href="./login"
+        <p className="mt-8 text-lg text-center text-gray-700">
+          Already have an account? {" "}
+          <Link
+            href="/login"
             className="font-medium text-orange-500 hover:underline"
           >
             Log in
-          </a>
+          </Link>
         </p>
+
       </div>
       {/* </div> */}
       <div className='relative hidden md:visible lg:visible w-0 flex-1 lg:block'>
         <img
-          className='animate__animated animate__fadeIn animate__delay-1 animate__slow absolute inset-0 h-full w-full object-cover'
+          className='animate__slow absolute inset-0 h-full w-full object-cover'
           src='pxfuel.jpg'
         />
       </div>

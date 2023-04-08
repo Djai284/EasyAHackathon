@@ -43,7 +43,7 @@ export default function Header() {
   }, [top]);
 
   return (
-    <header className={`animate__animated animate__fadeIn animate__delay-3s fixed w-full bg-white z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
+    <header className={`animate__animated animate__fadeIn animate__delay-1s fixed w-full bg-white z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
 

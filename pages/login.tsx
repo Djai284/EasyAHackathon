@@ -1,8 +1,14 @@
 import React from 'react'
+import {useState} from 'react'
 import { Login } from '../components'
+import Link from 'next/link'
+import { googleLogin } from '../components/api/auth'
+
 import 'animate.css'
 
 const login = () => {
+  const [form, setForm] = useState()
+
   return (
     <div className='flex h-screen'>
       <div className='relative hidden sm:visible md:visible lg:visible w-0 flex-1 lg:block'>
@@ -66,9 +72,10 @@ const login = () => {
           <div className="absolute px-5 bg-white">Or</div>
         </div> */}
         <div className="flex mt-4 gap-x-2">
-        <button
+          <button
             type="button"
             className="flex items-center w-full p-4 border bg-neutral-800 border-gray-600 rounded-md hover:bg-neutral-700 shadow-sm"
+            onClick={() => {googleLogin()}}
           >
             <div className='mx-auto flex'>
               <svg className="flex h-7 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
@@ -86,12 +93,12 @@ const login = () => {
         <p className="mt-8 text-lg font-light text-center text-gray-700">
           {" "}
           Don't have an account?{" "}
-          <a
-            href="./signup"
+          <Link
+            href="/signup"
             className="font-medium text-orange-500 hover:underline"
           >
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>

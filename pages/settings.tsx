@@ -1,8 +1,12 @@
 import React from 'react'
+import { SidePanel } from '../components'
 
 const settings = () => {
   return (
-    <div> Settings </div>
+    <div>
+      <SidePanel />
+      Settings
+    </div>
   )
 }
 

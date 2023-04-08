@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import GoogleButton from 'react-google-button';
 
@@ -76,12 +77,12 @@ export default function Login() {
         <p className="mt-8 text-xs font-light text-center text-gray-700">
           {" "}
           Don't have an account?{" "}
-          <a
-            href="./signup"
+          <Link
+            href="/signup"
             className="font-medium text-orange-500 hover:underline"
           >
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
