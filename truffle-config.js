@@ -15,12 +15,12 @@ module.exports = {
          provider: () => {
             if (!privateKeyDev.trim()) {
                throw new Error(
-                  'Please enter a private key with funds, you can use the default one'
+                  'toilet piece ring crane crack parrot fiber stem sunny catalog spare garbage'
                );
             }
             return new HDWalletProvider(
                privateKeyDev,
-               'http://localhost:9944/'
+               'http://localhost:9933/'
             );
          },
          network_id: 1281,
