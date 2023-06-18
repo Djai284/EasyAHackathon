@@ -13,6 +13,12 @@ async function main() {
  
     // 4. Use the contract instance to get the contract address
     console.log('meta deployed to:', meta.address);
+
+    const NFT = await ethers.getContractFactory('MyToken');
+    console.log("Deploying NFT contract...");
+    const nft = await NFT.deploy();
+    await nft.deployed();
+    console.log('NFT deploted to:', nft.address);
  }
  
  main()
