@@ -3,21 +3,16 @@ import {useState} from 'react'
 import { Login } from '../components'
 import Link from 'next/link'
 import { googleLogin } from '../components/api/auth'
-
 import 'animate.css'
+
+const image = '4k-flowy-face.png'
 
 const login = () => {
   const [form, setForm] = useState()
 
   return (
     <div className='flex h-screen'>
-      <div className='relative hidden sm:visible md:visible lg:visible w-0 flex-1 lg:block'>
-        <img
-          className='absolute inset-0 h-full w-full object-cover'
-          src='pxfuel3.jpg'
-        />
-      </div>
-      <div className="animate__animated animate__fadeInDown w-full px-4 sm:px-6 lg:px-20 m-auto bg-white rounded-2xl sm:max-w-lg ">
+      <div className="animate__animated animate__fadeInDown md:w-full sm:w-full px-4 sm:px-6 lg:px-20 m-auto bg-white rounded-2xl sm:max-w-lg ">
         <div className="flex w-full lg:w-96 mx-auto justify-center mb-5">
           <a href="/">
             <img
@@ -28,8 +23,8 @@ const login = () => {
             />
           </a>
         </div>
-        <h1 className="text-5xl font-semibold text-center text-orange-500 mb-8">
-          Log In
+        <h1 className="text-5xl font-semibold text-center text-red-700 mb-8">
+          Artist Log In
         </h1>
         {/* <form className="mt-6">
           <div className="mb-2">
@@ -89,17 +84,15 @@ const login = () => {
 
           </button>
         </div>
+      </div>
 
-        <p className="mt-8 text-lg font-light text-center text-gray-700">
-          {" "}
-          Don't have an account?{" "}
-          <Link
-            href="/signup"
-            className="font-medium text-orange-500 hover:underline"
-          >
-            Sign up
-          </Link>
-        </p>
+
+      {/* Image */}
+      <div className='relative hidden sm:visible md:visible lg:visible w-0 flex-1 lg:block'>
+        <img
+          className='absolute inset-0 h-full w-full object-cover'
+          src={image}
+        />
       </div>
     </div>
 

@@ -43,7 +43,7 @@ export default function Header() {
   }, [top]);
 
   return (
-    <header className={`animate__animated animate__fadeIn animate__delay-1s fixed w-full bg-white z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
+    <header className={`animate__animated animate__fadeIn fixed w-full bg-transparent z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
 
@@ -92,14 +92,14 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link href="/login" className="text-gray-600 text-lg hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">
-                  Log in
+                <Link href="/login" className="text-lg hover:text-red-700 px-5 py-3 flex items-center transition duration-150 ease-in-out">
+                  Artists
                 </Link>
               </li>
               <li>
                 <Link href='/signup'>
-                  <div className="px-4 py-2 bg-gray-900 text-white text-lg rounded-md hover:bg-gray-800">
-                    Sign Up
+                  <div className="px-4 py-2 bg-gray-900 text-white text-lg rounded-md hover:bg-red-700 hover:shadow-xl transition duration-400">
+                    Companies
                   </div>
                 </Link>
               </li>

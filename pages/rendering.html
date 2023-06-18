@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blend File Uploader</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Upload your .blend file</h1>
+  <form id="upload-form" enctype="multipart/form-data">
+    <input type="file" id="file-input" name="blend-file" accept=".blend">
+    <button type="submit">Submit</button>
+  </form>
+  <div id="download-section" style="display:none;">
+    <h2>Download Rendered File</h2>
+    <button id="download-btn">Download</button>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

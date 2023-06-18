@@ -14,7 +14,6 @@ import { number } from 'prop-types'
 // }
 
 const onboarding = () => {
-
   // For all the form inputs that we need to collect. This will be stored as part of the user onboarding data.
   const [form, setForm] = useState({
     plan: '',
@@ -23,9 +22,12 @@ const onboarding = () => {
     upgradeFrequency: -1
   });
 
+  // For the user warnings when the form is submitted
+  const [warning, setWarning] = useState('')
+
   // Updates the form data everytime the user changes the fields
-  const onChange = (e) => {
-    const { value, name, type, checked } = e.target;
+  const onChange = (event: any) => {
+    const { value, name, type, checked } = event.target;
 
     if (type == 'checkbox' && name == 'workType') {
       checked ? form.workType.push(value) : form.workType.splice(form.workType.indexOf(value), 1)
@@ -37,22 +39,25 @@ const onboarding = () => {
     }))
   }
 
-  const verifyForm = () => {
-    if (form.workType.length < 1) {
-      return false;
-    }
+  function verifyForm() {
 
     if (form.plan == '') {
-      return false;
+      return 2;
     }
+    else if (form.workType.length < 1) {
+      return 1;
+    }
+    else if (form.computerCost < 0) {
+      return 3;
+    }
+    else if (form.upgradeFrequency < 0) {
+      return 4;
+    }
+    else return 0;
+  }
 
-    if (form.computerCost < 0) {
-      return false;
-    }
-
-    if (form.upgradeFrequency < 0) {
-      return false;
-    }
+  function notifyUser(message: string) {
+    setWarning('*' + message + '*')
   }
 
   // Handles the submission logic
@@ -65,6 +70,27 @@ const onboarding = () => {
     // verify the form to make sure all the inputs are correct. If they are not, the submission will
     // be halted and the input areas that are incorrect will be highlighted, notifying the user
     // about what went wrong.
+    const formVerification = verifyForm()
+
+    switch (formVerification) {
+      case 0:
+        // Form is good, submit the user data to database and redirect user to the dashboard
+        window.location.assign('/dashboard')
+        break
+      case 1:
+        notifyUser('Please choose type(s) of work you plan to do with Solis')
+        break
+      case 2:
+        notifyUser('Please select how you plan to use Solis')
+        break
+      case 3:
+        notifyUser('Please enter a valid value (> $0) for the computer cost')
+        break
+      case 4:
+        notifyUser('Please enter a value valye (> 0 years) for the upgrade frequency')
+        break
+    }
+
     console.log("Form: ", form)
   }
 
@@ -80,7 +106,7 @@ const onboarding = () => {
           <svg className="h-10 w-10" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm2-13c0 .28-.21.8-.42 1L10 9.58c-.57.58-1 1.6-1 2.42v1h2v-1c0-.29.21-.8.42-1L13 9.42c.57-.58 1-1.6 1-2.42a4 4 0 1 0-8 0h2a2 2 0 1 1 4 0zm-3 8v2h2v-2H9z" fill="#f5911e" ></path></svg>
         </span> */}
         </div>
-        <div className='animate__animated animate__fadeInUp animate__delay-1s bg-white shadow shadow-white p-14 rounded-lg'>
+        <div className='animate__animated animate__fadeInUp animate__delay-1s bg-white shadow shadow-white px-14 py-8 rounded-lg'>
           <form onSubmit={handleSubmit}>
             <div className="mb-8">
               <h1 className='text-xl'> What do you plan on using Solis for?</h1>
@@ -114,7 +140,7 @@ const onboarding = () => {
 
             <div className='mb-8'>
               <h1 className='text-xl mb-2'> What kind of work do you want to do on Solis? </h1>
-              <ul className='text-lg space-y-2'>
+              <ul className='text-lg gap-y-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
                 <li>
                   <label>
                     <input onChange={onChange} type='checkbox' value='photo editing' name='workType' />
@@ -172,13 +198,12 @@ const onboarding = () => {
               <input onChange={onChange} type='number' name='upgradeFrequency' className='border rounded text-lg px-2' />
             </div>
           </form>
+          <label className='text-red-400 text-md mx-auto flex flex-row justify-center'> {warning} </label>
           <button
             className='flex px-4 py-2 hover:shadow-lg transition ease-in-out bg-orange-500 text-lg text-gray-100 mx-auto font-semibold rounded-md'
             onClick={handleSubmit}
           >
-            {/* <Link href='/dashboard'> */}
             Enjoy the free demo
-            {/* </Link> */}
           </button>
         </div>
       </div>

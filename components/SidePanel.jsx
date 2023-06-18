@@ -1,28 +1,43 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Link from 'next/link'
+import { app } from './firebaseConfig'
+import { collection, query, getDocs, getFirestore, doc, getDoc, Timestamp } from 'firebase/firestore'
 
-const SidePanel = () => {
+const db = getFirestore(app)
+const imageSrc = 'yumi.png'
+
+const SidePanel = () => {  
   return (
-    <div className="w-80 h-screen flex flex-col p-3 bg-[#252325] shadow sticky top-0">
+    <div className="w-72 h-screen flex flex-col p-3 shadow sticky top-0">
       <div className="space-y-3">
-        <div className="flex items-center justify-center rounded-lg px-4 py-4 hover:cursor-pointer">
+        <div className="flex items-center justify-center bg-white rounded-lg px-4 py-4 transition duration-400 hover:cursor-pointer">
           <Link href='/' className='flex'>
-            <img src='logo.png' className='h-16 flex' />
-            <h2 className="px-4 text-2xl font-thin text-white flex">
-              Solis Machines
-            </h2>
+            <img src='MindPalette.png' className='h-8' />
           </Link>
         </div>
         <div className="flex-1">
-          <ul className="pt-2 pb-4 space-y-1 text-xl relative">
-            <li className="rounded-md hover:bg-orange-400">
+          <ul className="pt-2 pb-4 space-y-1 text-xl relative text-gray-900">
+            <li className="rounded-md transition duration-400 hover:text-red-700 w-full"
+            // onClick={logOut}
+            >
+              <button
+                className="flex justify-start items-center p-2 space-x-3 rounded-md w-full"
+              >
+                <img
+                  src={imageSrc}
+                  className='h-10 w-10 rounded-full object-cover'
+                />
+                <span className="justify-self-end"> Yumi Hiroko </span>
+              </button>
+            </li>
+            <li className="rounded-md transition duration-400 text-red-700">
               <a
-                href="./"
+                href="./dashboard"
                 className="flex items-center p-2 space-x-3 rounded-md"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-gray-100"
+                  className="w-6 h-6 "
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -34,17 +49,17 @@ const SidePanel = () => {
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                   />
                 </svg>
-                <span className="text-gray-100">Home</span>
+                <span className="">Home</span>
               </a>
             </li>
-            <li className="rounded-md hover:bg-orange-400">
+            {/* <li className="rounded-md transition duration-400 hover:text-red-700">
               <a
                 href="./explore"
                 className="flex items-center p-2 space-x-3 rounded-md"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-gray-100"
+                  className="w-6 h-6 "
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -56,40 +71,11 @@ const SidePanel = () => {
                     d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                   />
                 </svg>
-                <span className="text-gray-100">
+                <span className="">
                   Explore
                 </span>
               </a>
-            </li>
-            <li className="rounded-md hover:bg-orange-400 mt-30 inset-x-0 bottom-0">
-              <a
-                href="./settings"
-                className="flex items-center p-2 space-x-3 rounded-md"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-gray-100"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span className="text-gray-100">
-                  Settings
-                </span>
-              </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
@@ -98,3 +84,5 @@ const SidePanel = () => {
 }
 
 export default SidePanel
+
+

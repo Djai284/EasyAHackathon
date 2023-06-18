@@ -1,11 +1,11 @@
 import React from 'react'
-import { SidePanel } from '../components'
+import { SidePanel, AppLibrary } from '../components'
 
 const explore = () => {
   return (
-    <div>
+    <div className='flex'>
       <SidePanel />
-        
+      <AppLibrary />
     </div>
   )
 }
